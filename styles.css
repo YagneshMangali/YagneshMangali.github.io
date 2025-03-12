@@ -69,6 +69,11 @@ nav ul li a:hover {
 }
 
 .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Full viewport height to center vertically */
     text-align: center;
 }
 
@@ -93,11 +98,13 @@ nav ul li a:hover {
     white-space: nowrap;
     border-right: 3px solid #00d4ff;
     animation: typing 3s steps(20) infinite, blink 0.5s step-end infinite;
+    margin: 0 auto;
 }
 
 .subtitle {
     font-size: 1.5rem;
     color: #b3e5fc;
+    margin-top: 0.5rem;
 }
 
 .contact-links a {
