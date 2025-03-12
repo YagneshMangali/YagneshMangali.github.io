@@ -83,6 +83,8 @@ nav ul li a:hover {
     border-radius: 50%;
     border: 3px solid #00d4ff;
     margin-bottom: 1rem;
+    object-fit: cover; /* Prevents stretching by cropping if needed */
+    object-position: center;
     transition: transform 0.3s ease;
 }
 
@@ -94,11 +96,23 @@ nav ul li a:hover {
     font-family: 'Orbitron', sans-serif;
     font-size: 3rem;
     color: #fff;
+    text-align: center; /* Center the text */
+    display: inline-block; /* Allows centering while keeping animation */
+    position: relative;
     overflow: hidden;
     white-space: nowrap;
-    border-right: 3px solid #00d4ff;
-    animation: typing 3s steps(20) infinite, blink 0.5s step-end infinite;
-    margin: 0 auto;
+    margin: 0 auto; /* Horizontal centering */
+}
+
+/* Remove infinite loop from animations and adjust for one-time run */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    0%, 100% { border-right-color: #00d4ff; }
+    50% { border-right-color: transparent; }
 }
 
 .subtitle {
