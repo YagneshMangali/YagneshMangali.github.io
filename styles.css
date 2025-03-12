@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -6,8 +7,8 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background: #000;
-    color: #00ff00;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #fff;
     overflow-x: hidden;
 }
 
@@ -17,12 +18,12 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(0, 255, 0, 0.1), rgba(0, 0, 0, 0.5));
+    background: rgba(0, 0, 0, 0.2);
     z-index: -1;
 }
 
 nav {
-    background: rgba(0, 0, 0, 0.95);
+    background: rgba(0, 0, 0, 0.8);
     padding: 1rem;
     position: fixed;
     width: 100%;
@@ -37,7 +38,7 @@ nav ul {
 }
 
 nav ul li a {
-    color: #00ff00;
+    color: #00d4ff;
     text-decoration: none;
     font-family: 'Orbitron', sans-serif;
     font-weight: 700;
@@ -52,15 +53,17 @@ nav ul li a:hover {
     padding: 5rem 2rem;
     margin: 2rem auto;
     max-width: 1100px;
-    background: rgba(0, 10, 0, 0.8);
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+    position: relative;
 }
 
 .section h2 {
     font-family: 'Orbitron', sans-serif;
     font-size: 2.5rem;
-    color: #00ff00;
+    color: #00d4ff;
     text-align: center;
     margin-bottom: 2rem;
 }
@@ -70,7 +73,7 @@ nav ul li a:hover {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    min-height: 100vh; /* Full viewport height to center vertically */
     text-align: center;
 }
 
@@ -78,36 +81,53 @@ nav ul li a:hover {
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    border: 3px solid #00ff00;
+    border: 3px solid #00d4ff;
     margin-bottom: 1rem;
-    object-fit: cover;
+    object-fit: cover; /* Prevents stretching by cropping if needed */
+    object-position: center;
+    transition: transform 0.3s ease;
+}
+
+.headshot:hover {
+    transform: scale(1.1);
 }
 
 .typing {
     font-family: 'Orbitron', sans-serif;
     font-size: 3rem;
     color: #fff;
-    text-align: center;
-    display: inline-block;
+    text-align: center; /* Center the text */
+    display: inline-block; /* Allows centering while keeping animation */
     position: relative;
     overflow: hidden;
     white-space: nowrap;
-    margin: 0 auto;
+    margin: 0 auto; /* Horizontal centering */
+}
+
+/* Remove infinite loop from animations and adjust for one-time run */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    0%, 100% { border-right-color: #00d4ff; }
+    50% { border-right-color: transparent; }
 }
 
 .subtitle {
     font-size: 1.5rem;
-    color: #00cc00;
+    color: #b3e5fc;
     margin-top: 0.5rem;
 }
 
 .contact-links a {
-    color: #00ff00;
+    color: #00d4ff;
     text-decoration: none;
 }
 
 .card {
-    background: rgba(0, 20, 0, 0.7);
+    background: rgba(255, 255, 255, 0.05);
     padding: 1.5rem;
     margin-bottom: 1.5rem;
     border-radius: 10px;
@@ -132,7 +152,7 @@ nav ul li a:hover {
 .skill span {
     width: 150px;
     font-family: 'Orbitron', sans-serif;
-    color: #00ff00;
+    color: #00d4ff;
 }
 
 .skill-bar {
@@ -160,7 +180,7 @@ nav ul li a:hover {
     height: 100%;
     backface-visibility: hidden;
     transition: transform 0.6s;
-    background: rgba(0, 30, 0, 0.9);
+    background: rgba(0, 0, 0, 0.7);
     padding: 1rem;
     border-radius: 10px;
     text-align: center;
@@ -191,20 +211,20 @@ form input, form textarea {
     width: 100%;
     padding: 1rem;
     margin-bottom: 1rem;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid #00ff00;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #00d4ff;
     border-radius: 5px;
-    color: #00ff00;
+    color: #fff;
 }
 
 form button, .resume-btn {
     display: block;
     width: 200px;
     padding: 1rem;
-    background: #00ff00;
+    background: #00d4ff;
     border: none;
     border-radius: 5px;
-    color: #000;
+    color: #1e3c72;
     font-family: 'Orbitron', sans-serif;
     cursor: pointer;
     margin: 1rem auto;
@@ -221,12 +241,159 @@ form button:hover, .resume-btn:hover {
 }
 
 @keyframes blink {
-    0%, 100% { border-right-color: #00ff00; }
-    50% { border-right-color: transparent; }
+    50% { border-color: transparent; }
 }
 
 @media (max-width: 768px) {
     .section { padding: 3rem 1rem; }
     .typing { font-size: 2rem; }
     nav ul { flex-direction: column; gap: 1rem; }
+=======
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+nav {
+    background: #1a1a1a;
+    color: white;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #00aaff;
+}
+
+.section {
+    padding: 5rem 2rem;
+    margin: 2rem auto;
+    max-width: 1000px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.section.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section h1 {
+    font-size: 2.5rem;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+}
+
+.section h2 {
+    font-size: 2rem;
+    color: #00aaff;
+    margin-bottom: 2rem;
+}
+
+.section h3 {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.education-item, .experience-item, .project-item {
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li {
+    margin-bottom: 0.75rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+form input, form textarea {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus, form textarea:focus {
+    border-color: #00aaff;
+    outline: none;
+}
+
+form textarea {
+    min-height: 150px;
+}
+
+form button {
+    padding: 0.75rem;
+    background: #1a1a1a;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+}
+
+form button:hover {
+    background: #00aaff;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .section {
+        padding: 3rem 1rem;
+        margin: 1rem;
+    }
+
+    .section h1 {
+        font-size: 2rem;
+    }
+
+    .section h2 {
+        font-size: 1.5rem;
+    }
+>>>>>>> 5c49a7aceefd658390a7160005950bd872706cf1
 }
